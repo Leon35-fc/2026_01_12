@@ -21,11 +21,11 @@ public class es1 {
             System.out.println("scegli un numero da 1 a 5.");
             input = Integer.parseInt(scn.nextLine());
 
-            if (input < 1 && input > 6) {
+            if (input >6) {
                 throw new OutOfRangeException(input);
+            } else {
+                System.out.println(numCasuali[input - 1]);
             }
-
-            System.out.println(numCasuali[input - 1]);
         }
         System.out.println("Programma terminato.");
     }
