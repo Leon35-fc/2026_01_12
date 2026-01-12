@@ -1,6 +1,7 @@
 package es1;
 
 import es1.exceptions.OutOfRangeException;
+import es1.exceptions.StringInputException;
 
 import java.util.Scanner;
 
@@ -23,9 +24,13 @@ public class es1 {
 
             if (input >6) {
                 throw new OutOfRangeException(input);
+            } else if (typeof(input) == String) {
+                throw new StringInputException();
             } else {
                 System.out.println(numCasuali[input - 1]);
             }
+
+
         }
         System.out.println("Programma terminato.");
     }
