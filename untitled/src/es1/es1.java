@@ -1,8 +1,5 @@
 package es1;
 
-import es1.exceptions.OutOfRangeException;
-import es1.exceptions.StringInputException;
-
 import java.util.Scanner;
 
 public class es1 {
@@ -19,18 +16,22 @@ public class es1 {
 
         int input = 1;
         while (input != 0) {
-            System.out.println("scegli un numero da 1 a 5.");
-            input = Integer.parseInt(scn.nextLine());
+            System.out.println("Scegli un numero da 1 a 5.");
 
-            if (input >6) {
-                throw new OutOfRangeException(input);
-            } else if (typeof(input) == String) {
-                throw new StringInputException();
-            } else {
-                System.out.println(numCasuali[input - 1]);
+            try {
+                input = Integer.parseInt(scn.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Valore non valido! Hai inserito una parola o una lettera. \nInserisci un numero da 1 a 5. \nUltimo valore vallido: " + input);
             }
 
-
+            if (input > 0 && input < 6) {
+                System.out.println(numCasuali[input - 1]);
+            } else if (input == 0) {
+                break;
+            } else {
+                System.out.println("ATTENZIONE! " + input + " è un valore fuori dal range. \nDevi inserire un numero da 1 a 5.");
+//                throw new OutOfRangeException(input);
+            }
         }
         System.out.println("Programma terminato.");
     }
