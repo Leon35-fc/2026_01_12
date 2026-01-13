@@ -1,5 +1,6 @@
 package es2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class es2 {
@@ -9,8 +10,13 @@ public class es2 {
         System.out.println("Inserisci i chilometri percorsi.");
         int km = scn.nextInt();
         System.out.println("Inserisci i litri di carburante usato.");
-        int lt = scn.nextInt();
-
-        System.out.println(km/lt);
+        int lt = 0;
+        try {
+            lt = scn.nextInt();
+        } catch (InputMismatchException exception) {
+//            System.out.println("Errore! Devi inserire un numero." + exception);
+        }
+        double mkLt = (double) km / (double) lt;
+        System.out.println(mkLt);
     }
 }
